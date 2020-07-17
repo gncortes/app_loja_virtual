@@ -1,0 +1,26 @@
+# This is a generated file; do not edit or check into version control.
+connectivity=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-0.4.9/
+connectivity_for_web=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_for_web-0.3.0/
+connectivity_macos=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_macos-0.1.0+3/
+devicelocale=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/devicelocale-0.2.3/
+flutter_image_compress=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_image_compress-0.6.8/
+flutter_plugin_android_lifecycle=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.8/
+geolocator=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.3.1/
+google_api_availability=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/google_api_availability-2.0.4/
+image_cropper=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_cropper-1.2.3/
+image_picker=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.7+4/
+location_permissions=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/location_permissions-2.0.5/
+onesignal_flutter=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/onesignal_flutter-2.6.0/
+package_info=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.1/
+path_provider=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.11/
+path_provider_linux=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/
+path_provider_macos=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+3/
+shared_preferences=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.8/
+shared_preferences_linux=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-0.0.2+1/
+shared_preferences_macos=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+10/
+shared_preferences_web=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7/
+sqflite=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.3.1/
+url_launcher=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.5.0/
+url_launcher_linux=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-0.0.1+1/
+url_launcher_macos=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+7/
+url_launcher_web=/home/gabriel/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.2/
