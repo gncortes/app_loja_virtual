@@ -108,13 +108,6 @@ class _CustomDrawerState
   final pageController = Modular.get<PageViewController>();
   final controller = Modular.get<CustomDrawerController>();
   ReactionDisposer disposer;
-  @override
-  void initState() {
-    // TODO: implement initState
-    controller.changePage(pageController.currentPage);
-    super.initState();
-    
-  }
 
   @override
   void didChangeDependencies() {
