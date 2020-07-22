@@ -1,1 +1,0 @@
-enum OrderBy{DATE,PRICE}
