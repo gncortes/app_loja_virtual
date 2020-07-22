@@ -6,12 +6,6 @@ class CustomDrawerController = _CustomDrawerControllerBase
 
 
 abstract class _CustomDrawerControllerBase with Store {
-  
-  _CustomDrawerControllerBase() {
-    autorun((_) {
-      print(currentPage);
-    });
-  }
 
   @observable
   int currentPage;

@@ -1,3 +1,4 @@
+import 'package:app_loja_virtual/app/modules/my_acount/pages/login/widgets/facebook_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -8,7 +9,7 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends ModularState<LoginPage,LoginController> {
+class _LoginPageState extends ModularState<LoginPage, LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +23,8 @@ class _LoginPageState extends ModularState<LoginPage,LoginController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            FacebookButton(),
+            divisoria(),
             textAcessarComEmail(),
             Padding(
               padding: const EdgeInsets.only(left: 3, bottom: 4),
@@ -33,7 +36,10 @@ class _LoginPageState extends ModularState<LoginPage,LoginController> {
                 autocorrect: false,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
+                  errorText: controller.validateEmail,
                 ),
+                onChanged: controller.client.changeEmail,
+                enabled: !controller.isLoggin,
               );
             }),
             campoDeTextSenha(),
@@ -43,6 +49,41 @@ class _LoginPageState extends ModularState<LoginPage,LoginController> {
                 autocorrect: false,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
+                  errorText: controller.validatePassword,
+                ),
+                onChanged: controller.client.changePassword,
+                enabled: !controller.isLoggin,
+              );
+            }),
+            const SizedBox(
+              height: 20,
+            ),
+            Observer(builder: (_) {
+              return Container(
+                margin: const EdgeInsets.symmetric(vertical: 24),
+                height: 50,
+                child: RaisedButton(
+                  color: Colors.pink,
+                  disabledColor: Colors.pink.withOpacity(0.5),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  onPressed:
+                      controller.isValid ? () => controller.goLogin() : null,
+                  child: controller.isLoggin
+                      ? CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                        )
+                      : Text(
+                          "Entrar em sua conta",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
+                        ),
                 ),
               );
             }),
@@ -76,7 +117,11 @@ class _LoginPageState extends ModularState<LoginPage,LoginController> {
 
   Widget campoDeTextSenha() {
     return Padding(
-      padding: const EdgeInsets.only(left: 3, bottom: 4,top:26,),
+      padding: const EdgeInsets.only(
+        left: 3,
+        bottom: 4,
+        top: 26,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -89,14 +134,26 @@ class _LoginPageState extends ModularState<LoginPage,LoginController> {
 
   Widget esqueceuSuaSenha() {
     return GestureDetector(
-      child: Text("Esqueceu sua senha",
-        style: TextStyle(
-          decoration: TextDecoration.underline,
-          color: Colors.blue,),
-      ),
-      onTap: (){
+        child: Text(
+          "Esqueceu sua senha",
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+            color: Colors.blue,
+          ),
+        ),
+        onTap: () {});
+  }
 
-      }
+  Widget divisoria() {
+    return Row(
+      children: <Widget>[
+        Expanded(child: Divider(color: Colors.grey,)),
+        const Padding( 
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          child: Text("ou"),
+        ),
+        Expanded(child: Divider(color: Colors.grey,)),
+      ],
     );
   }
 }

@@ -9,18 +9,31 @@ abstract class _LoginControllerBase with Store {
 
   _LoginControllerBase(this.client);
 
+  @observable
+  bool isLoggin = false;
+
+  @action
+  goLogin() async {
+    isLoggin = true;
+    await Future.delayed(Duration(seconds: 3));
+    isLoggin = false;
+  }
+
   @computed
   bool get isValid {
-    return validateEmail() == null && validatePassword() == null;
+    return validateEmail == null && validatePassword == null;
   }
 
-  String validateEmail() {
+  String get validateEmail {
     return (client.email == null || client.email.isEmpty)
-        ? "Digite seu email para entrar em sua conta"
-        : !(client.email.contains("@")) ? "Digite um email valido" : null;
+        ? "Digite seu E-mail para entrar em sua conta"
+        : !(RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                .hasMatch(client.email))
+            ? "Digite um E-mail valido"
+            : null;
   }
 
-  String validatePassword() {
+  String get validatePassword {
     return (client.password == null)
         ? "Digite sua senha"
         : (client.password.length < 4)

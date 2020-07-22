@@ -1,3 +1,4 @@
+import 'package:app_loja_virtual/app/modules/my_acount/pages/login/store/login_facebook_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'pages/login/login_page.dart';
 import 'pages/login/store/login_controller.dart';
@@ -11,6 +12,7 @@ class MyAcountModule extends ChildModule{
     Bind((i) => MyAcountController()),
     Bind((i) => LoginController(i.get())),
     Bind((i) => Client()),
+    Bind((i) => LoginFacebookController()),
   ];
 
   @override
