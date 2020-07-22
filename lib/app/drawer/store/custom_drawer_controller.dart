@@ -14,7 +14,7 @@ abstract class _CustomDrawerControllerBase with Store {
   }
 
   @observable
-  int currentPage = 0;
+  int currentPage;
 
   bool isPage(int page) => currentPage == page;
   

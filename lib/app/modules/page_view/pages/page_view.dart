@@ -1,4 +1,3 @@
-import 'package:app_loja_virtual/app/drawer/custom_drawer.dart';
 import 'package:app_loja_virtual/app/modules/announcements/annoucements_module.dart';
 import 'package:app_loja_virtual/app/modules/chat/chat_module.dart';
 import 'package:app_loja_virtual/app/modules/favorites/favorites_module.dart';
@@ -16,7 +15,6 @@ class PagesView extends StatefulWidget {
 }
 
 class _PagesViewState extends ModularState<PagesView, PageViewController> {
-  final drawer = Modular.get<CustomDrawer>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -7,6 +7,14 @@ import 'store/custom_drawer_controller.dart';
 import 'widgets/custom_header.dart';
 import 'widgets/icon_tile.dart';
 
+const HOME_PAGE = 0;
+const ANNOUCEMENTS_PAGE = 1;
+const MY_ANNOUCEMENTS_PAGE = 2;
+const CHAT_PAGE = 3;
+const FAVORITES_PAGE = 4;
+const SETTINGS_PAGE = 5;
+const MY_ACOUNT_PAGE = 6;
+
 class CustomDrawer extends StatefulWidget {
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
@@ -20,11 +28,15 @@ class _CustomDrawerState
       child: Column(
         children: <Widget>[
           Flexible(
-            flex: 1,
+            flex: 3,
             child: GestureDetector(
-              child: CustomHeader(),
+              child: Observer(builder: (_) {
+                return CustomHeader(
+                  onThisPage: controller.isPage(MY_ACOUNT_PAGE),
+                );
+              }),
               onTap: () {
-                _goAndPop(6);
+                controller.changePage(MY_ACOUNT_PAGE);
               },
             ),
           ),
@@ -33,7 +45,7 @@ class _CustomDrawerState
             thickness: 1,
           ),
           Flexible(
-            flex: 4,
+            flex: 7,
             child: iconSection(),
           ),
           Divider(
@@ -52,8 +64,8 @@ class _CustomDrawerState
   _goAndPop(int page) {
     page == controller.currentPage
         ? Navigator.pop(context)
-        : Navigator.pop(context);
-    controller.changePage(page);
+        : controller.changePage(page);
+    Navigator.pop(context);
   }
 
   Widget iconSection() {
@@ -65,43 +77,51 @@ class _CustomDrawerState
             IconTile(
               label: 'Tela Inicial',
               icon: Icons.home,
-              onTap: () => _goAndPop(0),
-              highlighted: controller.isPage(0),
+              onTap: () => _goAndPop(HOME_PAGE),
+              highlighted: controller.isPage(HOME_PAGE),
             ),
             IconTile(
               label: 'Anuncios',
               icon: Icons.list,
-              onTap: () => _goAndPop(1),
-              highlighted: controller.isPage(1),
+              onTap: () => _goAndPop(ANNOUCEMENTS_PAGE),
+              highlighted: controller.isPage(ANNOUCEMENTS_PAGE),
             ),
             IconTile(
               label: 'Inserir anuncios',
               icon: Icons.edit,
-              onTap: () => _goAndPop(2),
-              highlighted: controller.isPage(2),
+              onTap: () => _goAndPop(MY_ANNOUCEMENTS_PAGE),
+              highlighted: controller.isPage(MY_ANNOUCEMENTS_PAGE),
             ),
             IconTile(
               label: 'Chat',
               icon: Icons.chat,
-              onTap: () => _goAndPop(3),
-              highlighted: controller.isPage(3),
+              onTap: () => _goAndPop(CHAT_PAGE),
+              highlighted: controller.isPage(CHAT_PAGE),
             ),
             IconTile(
               label: 'Favoritos',
               icon: Icons.favorite,
-              onTap: () => _goAndPop(4),
-              highlighted: controller.isPage(4),
+              onTap: () => _goAndPop(FAVORITES_PAGE),
+              highlighted: controller.isPage(FAVORITES_PAGE),
             ),
             IconTile(
               label: 'Configurações',
               icon: Icons.settings,
-              onTap: () => _goAndPop(5),
-              highlighted: controller.isPage(5),
+              onTap: () => _goAndPop(SETTINGS_PAGE),
+              highlighted: controller.isPage(SETTINGS_PAGE),
             ),
           ],
         );
       }),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    when((r) => controller.currentPage != pageController.page.round(), () {
+      controller.changePage(pageController.page.round());
+    });
   }
 
   final pageController = Modular.get<PageViewController>();

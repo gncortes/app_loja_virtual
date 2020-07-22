@@ -1,6 +1,5 @@
 import 'package:app_loja_virtual/app/drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'app_bar/home_app_bar.dart';
 import 'widgets_home/top_buttons.dart';
 
@@ -10,7 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final drawer = Modular.get<CustomDrawer>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,7 +20,7 @@ class _HomePageState extends State<HomePage> {
           TopButtons(),
         ],
       ),
-      drawer: drawer,
+      drawer: CustomDrawer(),
     );
   }
 }

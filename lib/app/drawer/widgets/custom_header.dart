@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
+  final bool onThisPage;
+  const CustomHeader({Key key, this.onThisPage}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -12,7 +14,7 @@ class CustomHeader extends StatelessWidget {
           children: <Widget>[
             Icon(
               Icons.person,
-              color: Colors.black,
+              color: onThisPage? Colors.blue : Colors.black,
               size: 100,
             ),
             Column(
